@@ -1,30 +1,48 @@
 :root {
-    --paper-color: #fff9e6; /* 빈티지 종이색 */
+    --paper-color: #fffef2;
     --line-color: #d1d1d1;
     --red-ink: #e74c3c;
     --blue-ink: #2980b9;
     --black-ink: #2c3e50;
-    --grid-color: rgba(64, 150, 238, 0.1);
+    --grid-color: rgba(64, 150, 238, 0.08);
 }
 
 body {
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     font-family: 'Gaegu', cursive;
+    color: var(--black-ink);
 }
 
 .notebook {
     width: 95%;
-    max-width: 500px;
+    max-width: 600px;
     background-color: #fff;
-    box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     border: 1px solid #ddd;
-    position: relative;
+    margin: 20px 0;
 }
+
+/* 상단 내비게이션 */
+.top-nav {
+    background: #f8f8f8;
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    gap: 15px;
+    font-size: 1rem;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #666;
+}
+
+.top-nav a:hover { color: var(--red-ink); }
 
 .paper {
     background-color: var(--paper-color);
@@ -32,22 +50,9 @@ body {
         linear-gradient(var(--grid-color) 1px, transparent 1px),
         linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
     background-size: 25px 25px;
-    padding: 40px 20px;
-    min-height: 600px;
+    padding: 40px 30px;
+    min-height: 800px;
     position: relative;
-    overflow: hidden;
-}
-
-/* 왼쪽 구멍 효과 */
-.paper::before {
-    content: '';
-    position: absolute;
-    left: 10px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #e74c3c;
-    opacity: 0.5;
 }
 
 .title {
@@ -61,13 +66,12 @@ body {
 .subtitle {
     text-align: center;
     color: var(--blue-ink);
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
 }
 
-.input-area {
-    margin-top: 3rem;
-}
+/* 입력 영역 */
+.input-area { margin-top: 2rem; }
 
 .name-inputs {
     display: flex;
@@ -76,22 +80,13 @@ body {
     margin-bottom: 2rem;
 }
 
-.input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.input-group label {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
+.input-group label { display: block; font-size: 1.3rem; margin-bottom: 5px; text-align: center; }
 
 .input-group input {
     width: 100px;
     padding: 10px;
     font-family: inherit;
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-align: center;
     border: none;
     background: transparent;
@@ -100,98 +95,49 @@ body {
     color: var(--blue-ink);
 }
 
-.vs {
-    font-size: 1.5rem;
-    color: var(--red-ink);
-    font-weight: bold;
-}
+.vs { font-size: 1.8rem; color: var(--red-ink); font-weight: bold; }
 
 .btn-calculate {
     display: block;
     width: 100%;
-    padding: 15px;
+    padding: 18px;
     background-color: var(--red-ink);
     color: white;
     border: none;
     font-family: inherit;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 3px 3px 0px #c0392b;
-    transition: transform 0.1s;
+    border-radius: 8px;
+    box-shadow: 0 4px 0 #c0392b;
+    transition: all 0.2s;
 }
 
-.btn-calculate:active {
-    transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px #c0392b;
-}
+.btn-calculate:hover { background-color: #ff5e4d; transform: translateY(-2px); box-shadow: 0 6px 0 #c0392b; }
+.btn-calculate:active { transform: translateY(2px); box-shadow: 0 2px 0 #c0392b; }
+
+/* 결과 영역 */
+.calculation-visual { font-size: 2rem; text-align: center; letter-spacing: 12px; margin-bottom: 2rem; color: #555; }
+.final-score { text-align: center; margin: 2rem 0; border: 4px double var(--red-ink); padding: 20px; }
+.score-number { font-size: 4.5rem; font-weight: bold; color: var(--red-ink); }
+.analysis-box { background: rgba(255,255,255,0.6); border: 1px dashed var(--blue-ink); padding: 25px; margin-top: 1.5rem; }
+.analysis-text { font-size: 1.3rem; line-height: 1.8; }
+
+/* 텍스트 콘텐츠 섹션 */
+.article-section { margin-top: 4rem; text-align: left; }
+.article-section h2 { font-size: 1.8rem; color: var(--black-ink); border-left: 5px solid var(--red-ink); padding-left: 10px; }
+.article-section h3 { font-size: 1.5rem; color: var(--blue-ink); margin-top: 1.5rem; }
+.article-section p { font-size: 1.1rem; line-height: 1.7; color: #444; margin-bottom: 1rem; }
+.divider { border: none; border-top: 2px dashed #ccc; margin: 3rem 0; }
+
+.footer { margin-top: 4rem; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; font-size: 0.95rem; color: #888; }
+.footer-links { margin-bottom: 10px; }
+.footer-links a { color: #888; text-decoration: none; margin: 0 5px; }
 
 .hidden { display: none; }
+.privacy-page h1 { color: var(--red-ink); }
+.privacy-page h2 { font-size: 1.4rem; margin-top: 1.5rem; border-bottom: 1px solid #eee; }
 
-/* Result Style */
-.calculation-visual {
-    font-size: 1.8rem;
-    line-height: 1.2;
-    text-align: center;
-    letter-spacing: 15px;
-    margin-bottom: 2rem;
-    color: var(--black-ink);
-}
-
-.calc-row {
-    margin: 5px 0;
-}
-
-.final-score {
-    text-align: center;
-    margin: 2rem 0;
-    border: 3px double var(--red-ink);
-    padding: 15px;
-}
-
-.score-label {
-    font-size: 1.5rem;
-    display: block;
-}
-
-.score-number {
-    font-size: 4rem;
-    font-weight: bold;
-    color: var(--red-ink);
-}
-
-.analysis-box {
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px dashed var(--blue-ink);
-    padding: 20px;
-    margin-top: 1rem;
-}
-
-.analysis-title {
-    color: var(--blue-ink);
-    margin-top: 0;
-    font-size: 1.5rem;
-}
-
-.analysis-text {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    white-space: pre-wrap;
-}
-
-.btn-retry {
-    width: 100%;
-    margin-top: 2rem;
-    background: none;
-    border: 1px solid var(--text-sub);
-    padding: 10px;
-    font-family: inherit;
-    cursor: pointer;
-}
-
-.footer {
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    text-align: center;
-    color: #888;
+@media (max-width: 500px) {
+    .paper { padding: 30px 15px; }
+    .title { font-size: 2.8rem; }
 }
