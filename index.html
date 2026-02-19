@@ -3,70 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>천기누설 - 전통 관상 및 궁합</title>
+    <title>추억의 이름 궁합 - 우리 사이 몇 %?</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Song+Myung&display=swap" rel="stylesheet">
+    <!-- 손글씨 느낌의 폰트 추가 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="logo">天機漏洩</h1>
-            <p class="tagline">관상으로 읽는 삶의 흐름과 인연</p>
-        </header>
+    <div class="notebook">
+        <div class="paper">
+            <header>
+                <h1 class="title">❤️ 이름 궁합 테스트 ❤️</h1>
+                <p class="subtitle">교실에서 몰래 하던 바로 그 게임!</p>
+            </header>
 
-        <nav class="mode-selector">
-            <button id="btn-single" class="mode-btn active" onclick="setMode('single')">관상 보기</button>
-            <button id="btn-pair" class="mode-btn" onclick="setMode('pair')">관상 궁합</button>
-        </nav>
-
-        <main>
-            <section id="upload-section" class="card">
-                <div class="upload-container">
-                    <div id="upload-box-1" class="upload-box">
-                        <div class="preview-area" id="preview-1">
-                            <span class="plus">+</span>
-                            <p id="label-1">사진 업로드</p>
+            <main>
+                <section id="input-section" class="input-area">
+                    <div class="name-inputs">
+                        <div class="input-group">
+                            <label>내 이름</label>
+                            <input type="text" id="name1" maxlength="3" placeholder="홍길동">
                         </div>
-                        <input type="file" id="file-1" accept="image/*" hidden>
+                        <div class="vs">VS</div>
+                        <div class="input-group">
+                            <label>상대 이름</label>
+                            <input type="text" id="name2" maxlength="3" placeholder="성춘향">
+                        </div>
+                    </div>
+                    <button class="btn-calculate" onclick="calculateCompatibility()">두근두근 결과 보기</button>
+                </section>
+
+                <section id="result-section" class="result-area hidden">
+                    <div class="calculation-visual" id="calc-visual">
+                        <!-- 지그재그 계산 과정이 여기에 표시됨 -->
                     </div>
                     
-                    <div id="upload-box-2" class="upload-box hidden">
-                        <div class="preview-area" id="preview-2">
-                            <span class="plus">+</span>
-                            <p id="label-2">상대방 사진</p>
+                    <div class="final-score">
+                        <span class="score-label">우리의 궁합은...</span>
+                        <span id="score-number" class="score-number">00%</span>
+                    </div>
+
+                    <div class="analysis-box">
+                        <h3 class="analysis-title">✨ 연애술사의 심층 분석 ✨</h3>
+                        <div id="analysis-text" class="analysis-text">
+                            <!-- 길고 재미있는 분석 내용 -->
                         </div>
-                        <input type="file" id="file-2" accept="image/*" hidden>
                     </div>
-                </div>
-                <button id="analyze-btn" class="btn-main" onclick="startAnalysis()">분석 시작하기</button>
-            </section>
 
-            <section id="result-section" class="card hidden">
-                <div class="analysis-status">
-                    <div id="loading-spinner" class="spinner"></div>
-                    <p id="status-text">기운을 살피는 중입니다...</p>
-                </div>
-                
-                <div id="analysis-content" class="content-area hidden">
-                    <div class="result-header">
-                        <h2 id="result-title">관상 분석 결과</h2>
-                    </div>
-                    <div id="report-body" class="report-body">
-                        <!-- 결과가 여기에 동적으로 삽입됨 -->
-                    </div>
-                    <div class="hope-message" id="hope-message">
-                        <!-- 위로와 희망의 메시지 -->
-                    </div>
-                    <button class="btn-sub" onclick="location.reload()">다시 확인하기</button>
-                </div>
-            </section>
-        </main>
+                    <button class="btn-retry" onclick="location.reload()">다시 하기</button>
+                </section>
+            </main>
 
-        <footer>
-            <p>본 서비스는 관상학적 통계를 바탕으로 하며, 당신의 운명은 스스로의 노력으로 개척하는 것입니다.</p>
-        </footer>
+            <footer class="footer">
+                <p>※ 이 결과는 과학적 근거가 전혀 없는 추억 놀이용입니다. 재미로만 보세요! 😉</p>
+            </footer>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
